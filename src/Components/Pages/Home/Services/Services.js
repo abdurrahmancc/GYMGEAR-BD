@@ -1,20 +1,19 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const Services = ({ product }) => {
-  const { price, quantity, camera, service, extra, description } = product;
+const Services = (props) => {
+  const { id, name, price, packages, quantity, camera, service } = props.service;
   return (
-    <div className="col-md-3 ">
-      <h1 className="text-center">hello</h1>
+    <div className="col-md-4 col-sm-6 ">
+      <h1>hello hi by by</h1>
       <div>
-        {/* <h4>{packages}</h4> */}
-        <div>
-          <li>{price}</li>
-          <li>{quantity}</li>
-          <li>{camera}</li>
-          <li>{service}</li>
-          <li>{extra}</li>
-        </div>
+        <li>{name}</li>
+        <li>{price}</li>
+        <li>{packages}</li>
+        <li>{camera}</li>
+        <Link to={"/checkout/" + id}>
+          <button className="btn btn-primary mt-3 w-100">ProccedCheckOut</button>
+        </Link>
       </div>
     </div>
   );

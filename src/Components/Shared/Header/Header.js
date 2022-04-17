@@ -2,13 +2,13 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import auth from "../../../Firebase/Firebase.init";
 import "./Header.css";
 import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
-  const [user, loading, hooksError] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
   return (
     <>
       <Navbar
@@ -21,7 +21,7 @@ const Header = () => {
       >
         <Container className="py-2">
           <Navbar.Brand href="#home">
-            <Link className="text-decoration-none me-3 text-white" to={"/"}>
+            <Link className="text-decoration-none me-3 fw-bold text-white" to={"/"}>
               PHOTOGRAPHY BD
             </Link>
           </Navbar.Brand>
@@ -29,15 +29,39 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav ">
             <Nav className="ms-auto align-items-center">
               <div>
-                <Link className="text-decoration-none me-3 text-white" to="/home">
+                {/* <Link className="text-decoration-none me-3 text-white" to="/home">
                   Home
-                </Link>
-                <Link className="text-decoration-none me-3 text-white" to="/about">
+                </Link> */}
+                <NavLink
+                  to={"/home"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white border-bottom pb-2  border-white active-border fs-5 mx-2 fw-bolder text-decoration-none"
+                      : "text-white mx-2 fs-5 unActive-border text-decoration-none"
+                  }
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white border-bottom pb-2  border-white active-border fs-5 mx-2 fw-bolder text-decoration-none"
+                      : "text-white mx-2  unActive-border text-decoration-none"
+                  }
+                >
                   About
-                </Link>
-                <Link className="text-decoration-none me-3 text-white" to="/blog">
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white border-bottom pb-2  border-white active-border fs-5 mx-2 fw-bolder text-decoration-none"
+                      : "text-white mx-2  unActive-border text-decoration-none"
+                  }
+                  to="/blog"
+                >
                   Blogs
-                </Link>
+                </NavLink>
                 {user?.uid ? (
                   <button
                     onClick={() => signOut(auth)}
@@ -46,9 +70,16 @@ const Header = () => {
                     Log Out
                   </button>
                 ) : (
-                  <Link className="text-decoration-none me-3 text-white " to="/login">
-                    Log In
-                  </Link>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white border-bottom pb-2  border-white active-border fs-5 mx-2 fw-bolder text-decoration-none"
+                        : "text-white mx-2  unActive-border text-decoration-none"
+                    }
+                    to="/login"
+                  >
+                    LogIn
+                  </NavLink>
                 )}
               </div>
               <div>
@@ -61,7 +92,7 @@ const Header = () => {
                     srcset=""
                   />
                 ) : (
-                  <FaUserCircle className="text-white fs-3" />
+                  <FaUserCircle className="text-white ms-2 fs-3" />
                 )}
               </div>
             </Nav>

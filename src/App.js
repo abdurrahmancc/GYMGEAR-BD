@@ -11,11 +11,14 @@ import Login from "./Components/Pages/Login/Login";
 import Register from "./Components/Pages/Register/Register";
 import RequierAuth from "./Components/RequierAuth/RequierAuth";
 import Loading from "./Components/Shared/Loading/Loading";
+import { Toaster } from "react-hot-toast";
+import ProccedCheckOut from "./Components/Pages/ProccedCheckOut/ProccedCheckOut";
 
 function App() {
   return (
     <div className="">
       <Header></Header>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
@@ -29,7 +32,7 @@ function App() {
           }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        {/* <Route path="/spiner" element={<Loading></Loading>}></Route> */}
+        <Route path="/checkout/:id" element={<ProccedCheckOut></ProccedCheckOut>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

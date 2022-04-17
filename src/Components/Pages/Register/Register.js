@@ -1,19 +1,25 @@
+import { sendEmailVerification } from "firebase/auth";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useAuthState, useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../Firebase/Firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import "./Register.css";
 
 const Register = () => {
   const [user, loading, hooksError] = useAuthState(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [agree, setAgree] = useState(false);
   const [info, setInfo] = useState({ email: "", password: "", ConfirmPassword: "", name: "" });
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState({ email: "", password: "", confirmPassword: "", general: "" });
   const [createUserWithEmailAndPassword, users, loadings, createUserError] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  let from = location.state?.from?.pathname || "/";
 
   //handle input email
   const handleEmail = (inputeEail) => {
@@ -43,6 +49,8 @@ const Register = () => {
     if (info.password === info.ConfirmPassword) {
       createUserWithEmailAndPassword(info.email, info.password);
       setError({ ...error, confirmPassword: "" });
+      toast("send varifide code please check your email");
+      navigate(from, { replace: true });
     } else {
       setError({ ...error, confirmPassword: "your password not match" });
     }
@@ -88,7 +96,7 @@ const Register = () => {
             <Form.Check onClick={() => setAgree(!agree)} type="checkbox" label="Check me out" />
           </Form.Group>
 
-          <Button className="  mb-4" variant="primary" type="submit">
+          <Button disabled={!agree} className="  mb-4" variant="primary" type="submit">
             Submit
           </Button>
         </Form>

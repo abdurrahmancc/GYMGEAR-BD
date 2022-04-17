@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSendPasswordResetEmail,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.init";
 import google from "../../../images/social/google-logo.png";
 import github from "../../../images/social/github.png";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { async } from "@firebase/util";
 import Loading from "../../Shared/Loading/Loading";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [user, loading, hooksError] = useAuthState(auth);
@@ -15,6 +20,7 @@ const Login = () => {
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, logInUser, logInLoading, logInError] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const location = useLocation();
@@ -25,16 +31,25 @@ const Login = () => {
   const handleWithGoogle = async () => {
     await signInWithGoogle();
     await navigate(from, { replace: true });
+    toast.success("success");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
     navigate(from, { replace: true });
   };
+
+  const handleResetPassword = async () => {
+    await sendPasswordResetEmail(email);
+    toast("Sent email");
+  };
+
   if (loading) {
     return <Loading></Loading>;
   }
+  console.log(user);
+  console.log(logInError);
   return (
     <div style={{ height: "88vh" }} className="container d-flex">
       <div className="w-50 mx-auto my-auto">
@@ -59,14 +74,14 @@ const Login = () => {
           </Form.Group>
 
           <p className="text-end">
-            <button className="btn btn-link text-decoration-none  p-0">
+            <button
+              onClick={() => handleResetPassword()}
+              className="btn btn-link text-decoration-none  p-0"
+            >
               Forgot your password?
             </button>
           </p>
-
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
+          {logInLoading && <p>Loading...</p>}
           <Button variant="primary" type="submit">
             Submit
           </Button>
