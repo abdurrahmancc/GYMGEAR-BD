@@ -3,32 +3,62 @@ import { Card, CardGroup } from "react-bootstrap";
 
 const Blogs = () => {
   return (
-    <div className="container mt-5">
+    <div className="container mt-2 mb-5">
+      <h1 className="text-center mb-3">Blogs</h1>
+      <h3 className="text-center">FAQ for this Assignment</h3>
       <CardGroup>
         <Card>
           <Card.Body>
-            <Card.Title className="text-center">Card title</Card.Title>
+            <Card.Title className="text-center border-bottom pb-2">
+              Authentication vs Authorization
+            </Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.
+              <li>
+                Authentication ব্যবহারকারী কে তা যাচাই করে। Authentication একটি ভাল পরিচয় এবং
+                অ্যাক্সেস ব্যবস্থাপনা প্রক্রিয়ার প্রথম ধাপ। Authentication ব্যবহারকারীর দ্বারা
+                দৃশ্যমান এবং আংশিকভাবে পরিবর্তনযোগ্য। <br /> উদাহরণ: তাদের পরিচয় যাচাই করে,
+                কর্মচারীরা একটি HR অ্যাপ্লিকেশনে অ্যাক্সেস পেতে পারে যাতে তাদের ব্যক্তিগত বেতনের
+                তথ্য, ছুটির সময় অন্তর্ভুক্ত থাকে।
+              </li>
+              <li>
+                অন্যদিকে, অনুমোদন নির্ধারণ করে কোন ব্যবহারকারী কোন রিসোর্স অ্যাক্সেস করতে পারে।
+                অনুমোদন সর্বদা প্রমাণীকরণের পরে সঞ্চালিত হয়। অনুমোদন ব্যবহারকারীর কাছে দৃশ্যমান বা
+                পরিবর্তনযোগ্য নয়। উদাহরণ: একবার তাদের অ্যাক্সেসের স্তর অনুমোদিত হলে, কর্মচারী এবং
+                এইচআর ম্যানেজাররা সংস্থার দ্বারা সেট করা অনুমতিগুলির উপর ভিত্তি করে বিভিন্ন স্তরের
+                ডেটা অ্যাক্সেস করতে পারে।
+              </li>
             </Card.Text>
           </Card.Body>
         </Card>
         <Card>
           <Card.Body>
-            <Card.Title className="text-center">Card title</Card.Title>
+            <Card.Title className="text-center border-bottom pb-2">
+              Why "Firebase"? Why not Others?
+            </Card.Title>
             <Card.Text>
-              This card has supporting text below as a natural lead-in to additional content.{" "}
+              এটি রিয়েল-টাইম ডেটা পরিচালনার জন্য দুর্দান্ত সহায়তা প্রদান করে, বিশেষ করে যখন আপনার
+              অ্যাপ্লিকেশনটি মূলত ডাটাবেসের ইভেন্টগুলির উপর নির্ভর করে। এটি ব্যবহারকারীর সাইন আপ এবং
+              প্রমাণীকরণের পদ্ধতি প্রদান করে। যেহেতু ডাটাবেস অসংগঠিত, তাই ডাটাবেস ব্যবস্থাপনা খুবই
+              সহজ এবং সুবিধাজনক। Google ক্লাউড ফাংশনগুলির সাথে একীকরণ - বিকাশকে মজাদার করে তোলে৷
+              আপনার অ্যাপ্লিকেশন পরীক্ষা করা, যখন এটি ক্লায়েন্ট-সাইড ডেটার উপর নির্ভর করে তখন সহজ,
+              আপনি অতিরিক্ত মাইল যেতে না গিয়ে এবং ডেটা যোগ/মুছে ফেলার জন্য বিভিন্ন অনুসন্ধান
+              চালানোর প্রয়োজন ছাড়াই সহজেই নোড যোগ করতে পারেন এবং ডাটাবেসে পরিবর্তনগুলি বিশ্লেষণ
+              করতে পারেন। যদিও এটি দুর্দান্ত বৈশিষ্ট্যগুলি অফার করে, এটির নিজস্ব অসুবিধা রয়েছে
+              বিশেষ করে অনুসন্ধান বা ফিল্টারিং ডেটা প্রশ্নগুলির জন্য কোনও সমর্থন নেই
             </Card.Text>
           </Card.Body>
         </Card>
         <Card>
           <Card.Body>
-            <Card.Title className="text-center">Card title</Card.Title>
+            <Card.Title className="text-center border-bottom pb-2">
+              "Firebase" Other services without authentication
+            </Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to additional
-              content. This card has even longer content than the first to show that equal height
-              action.
+              ফায়ারবেসের প্রমাণীকরণ ছাড়া আরও অনেক পরিষেবা রয়েছে ফায়ারবেস রিয়েল টাইম ডাটাবেস
+              প্ল্যাটফর্ম প্রদান করে ফায়ারবেস রিয়েল টাইম ডাটাবেস ম্যানেজমেন্ট API প্রদান করে
+              Firebase অনেক ধরনের ডেটা এবং মাল্টিমিডিয়া ফাইল সঞ্চয় করার জন্য ক্লাউড স্টোরেজ প্রদান
+              করে Firebase আমাদের সাইটকে ইন্টারনেটে লাইভ হোস্টিং প্রদান করে উপরের সমস্ত পরিষেবাগুলির
+              সাথে ফায়ারবেস ফাংশন এবং ML KIT নামক পরিষেবাগুলিও সরবরাহ করে
             </Card.Text>
           </Card.Body>
         </Card>
