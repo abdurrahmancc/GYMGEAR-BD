@@ -32,6 +32,7 @@ function App() {
           }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/checkout" element={<ProccedCheckOut></ProccedCheckOut>}></Route>
         <Route path="/checkout/:id" element={<ProccedCheckOut></ProccedCheckOut>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

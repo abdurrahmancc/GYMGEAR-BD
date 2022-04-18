@@ -7,6 +7,7 @@ import Services from "../Services/Services";
 const AllServicess = () => {
   const [services, setServices] = useState([]);
   const [user, loading, error] = useAuthState(auth);
+
   useEffect(() => {
     fetch("service.json")
       .then((res) => res.json())

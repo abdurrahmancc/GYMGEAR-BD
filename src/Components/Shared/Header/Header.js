@@ -29,9 +29,6 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav ">
             <Nav className="ms-auto align-items-center">
               <div>
-                {/* <Link className="text-decoration-none me-3 text-white" to="/home">
-                  Home
-                </Link> */}
                 <NavLink
                   to={"/home"}
                   className={({ isActive }) =>
@@ -41,6 +38,16 @@ const Header = () => {
                   }
                 >
                   Home
+                </NavLink>
+                <NavLink
+                  to={"/checkout"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white border-bottom pb-2  border-white active-border fs-5 mx-2 fw-bolder text-decoration-none"
+                      : "text-white mx-2 fs-5 unActive-border text-decoration-none"
+                  }
+                >
+                  CheckOut
                 </NavLink>
                 <NavLink
                   to="/about"
@@ -89,7 +96,6 @@ const Header = () => {
                     className="rounded-circle border-white border ms-2 border-2"
                     src={user?.photoURL}
                     alt=""
-                    srcset=""
                   />
                 ) : (
                   <FaUserCircle className="text-white ms-2 fs-3" />
