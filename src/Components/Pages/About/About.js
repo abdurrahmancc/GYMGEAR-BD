@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import img from "../../../images/rahman.jpg";
+import { Card } from "react-bootstrap";
 
 const About = () => {
   const [user, loading, hooksError] = useAuthState(auth);
@@ -12,12 +13,21 @@ const About = () => {
   return (
     <div style={{ minHeight: "87vh" }} className="container ">
       <div className="d-flex justify-content-center flex-column align-items-center">
-        <img className="w-25" src={img} alt="" />
-        <h4>Abdur Rahman</h4>
-        <p>
-          আমার সপ্ন হলো এই দীর্ঘ ৫ মাস কে কাজে লাগিয়ে একটি কম্পানি তেরী করা । যাতে এখান থেকে আমার
-          মতো আর ১০ জন কর্মসংস্থান গড়ে তুলা। এবং আমার গ্রামের মানুষের জন্য কিছু করা।{" "}
-        </p>
+        <img
+          style={{ width: "70px", marginBottom: "-30px" }}
+          className="rounded-circle border mt-5 border-2  border-dark"
+          src={img}
+          alt=""
+        />
+        <Card className="py-3" style={{ width: "35rem", zIndex: "-1" }}>
+          <Card.Body className="text-center">
+            <Card.Title>MD Abdur Rahman</Card.Title>
+            <Card.Text>
+              আমার সপ্ন হলো এই দীর্ঘ ৫ মাস কে কাজে লাগিয়ে একটি কম্পানি তেরী করা । যাতে এখান থেকে
+              আমার মতো আর ১০ জন কর্মসংস্থান গড়ে তুলা। এবং আমার গ্রামের মানুষের জন্য কিছু করা।
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     </div>
   );
