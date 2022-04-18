@@ -18,11 +18,10 @@ const AllServicess = () => {
     return <Loading></Loading>;
   }
 
-  console.log(services);
   return (
     <div className="container ">
-      <h1 className="text-center mt-5">Our Services</h1>
-      <div className="row g-5 mx-5 mx-sm-0">
+      <h1 className="text-center mt-5 mx-auto mb-3 border-bottom w-25 border-dark">Our Services</h1>
+      <div className="row g-5 mx-5 mx-sm-0 align-items-center">
         {services.map((service) => (
           <Services key={service.id} service={service}></Services>
         ))}

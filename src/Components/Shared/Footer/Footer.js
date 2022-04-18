@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <footer className="footer w-100 ">
-        <p className="text-center nvaber-color text-white py-3">
+        <p className="text-center nvaber-color m-0 text-white py-3">
           {" "}
           Copyright &copy; Abdur Rahman {new Date().getFullYear()}
         </p>

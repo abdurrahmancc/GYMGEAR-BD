@@ -9,6 +9,9 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
+  if (user) {
+    console.log("user");
+  }
   return (
     <>
       <Navbar
@@ -22,7 +25,7 @@ const Header = () => {
         <Container className="py-2">
           <Navbar.Brand href="#home">
             <Link className="text-decoration-none me-3 fw-bold text-white" to={"/"}>
-              PHOTOGRAPHY BD
+              GYMGEAR BD
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -39,16 +42,7 @@ const Header = () => {
                 >
                   Home
                 </NavLink>
-                <NavLink
-                  to={"/checkout"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white border-bottom pb-2  border-white active-border fs-5 mx-2 fw-bolder text-decoration-none"
-                      : "text-white mx-2 fs-5 unActive-border text-decoration-none"
-                  }
-                >
-                  CheckOut
-                </NavLink>
+
                 <NavLink
                   to="/about"
                   className={({ isActive }) =>
@@ -72,7 +66,7 @@ const Header = () => {
                 {user?.uid ? (
                   <button
                     onClick={() => signOut(auth)}
-                    className="btn btn-link text-decoration-none border-0 p-0 text-white"
+                    className="btn btn-link text-decoration-none mb-1 border-0 p-0 text-white"
                   >
                     Log Out
                   </button>

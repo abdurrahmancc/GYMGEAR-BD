@@ -1,19 +1,36 @@
 import React from "react";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 
-const Services = (props) => {
-  const { id, name, price, packages, quantity, camera, service } = props.service;
+const Services = ({ service }) => {
+  const { id, day, price, packages, serviceA, serviceB, serviceC, serviceD, serviceE, serviceF } =
+    service;
   return (
     <div className="col-md-4 col-sm-6 ">
-      <h1>hello hi by by</h1>
       <div>
-        <li>{name}</li>
-        <li>{price}</li>
-        <li>{packages}</li>
-        <li>{camera}</li>
-        <Link to={"/checkout/" + id}>
-          <button className="btn btn-primary mt-3 w-100">ProccedCheckOut</button>
-        </Link>
+        <Card style={{ width: "20rem" }} className="mx-auto text-center bg-info">
+          <Card.Body>
+            <Card.Title className="fw-bold fs-3">{packages}</Card.Title>
+            <span className="fs-1 ">{price}</span>
+            <br />
+            <span className="fs-5 ">{day}</span>
+            <Card.Text>
+              <p>{serviceB}</p>
+              <p>{serviceA}</p>
+              <p>{serviceC}</p>
+              <p>{serviceD}</p>
+              <p>{serviceE}</p>
+              <p>{serviceF}</p>
+            </Card.Text>
+
+            <Link to={"/checkout/" + id}>
+              <button style={{ backgroundColor: "#120E43" }} className="btn mt-3 text-white w-50">
+                Check Out <FaAngleRight />
+              </button>
+            </Link>
+          </Card.Body>
+        </Card>
       </div>
     </div>
   );

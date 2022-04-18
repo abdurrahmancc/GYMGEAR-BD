@@ -10,7 +10,7 @@ const About = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="container">
+    <div style={{ minHeight: "87vh" }} className="container ">
       <div className="d-flex justify-content-center flex-column align-items-center">
         <img className="w-25" src={img} alt="" />
         <h4>Abdur Rahman</h4>

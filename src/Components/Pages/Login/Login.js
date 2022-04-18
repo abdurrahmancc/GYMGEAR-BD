@@ -30,26 +30,29 @@ const Login = () => {
 
   const handleWithGoogle = async () => {
     await signInWithGoogle();
-    await navigate(from, { replace: true });
     toast.success("success");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signInWithEmailAndPassword(email, password);
-    navigate(from, { replace: true });
   };
 
   const handleResetPassword = async () => {
     await sendPasswordResetEmail(email);
     toast("Sent email");
   };
+  if (user) {
+    navigate(from, { replace: true });
+  }
 
   if (loading) {
     return <Loading></Loading>;
   }
-  console.log(user);
-  console.log(logInError);
+
+  if (logInError) {
+    toast.error("Incorrect username or password.", { id: "logInError" });
+  }
   return (
     <div style={{ height: "88vh" }} className="container d-flex">
       <div className="w-50 mx-auto my-auto">

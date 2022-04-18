@@ -1,12 +1,12 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import img1 from "../../../../images/product.jpg";
-import img2 from "../../../../images/Camara.jpg";
-import img3 from "../../../../images/working.jpg";
+import img1 from "../../../../images/social/gym1.png";
+import img2 from "../../../../images/social/gym2.jpg";
+import img3 from "../../../../images/social/gym3.jpg";
 
 const Banner = () => {
   return (
-    <div className="container">
+    <div className="">
       <Carousel>
         <Carousel.Item>
           <img style={{ height: "75vh" }} className="d-block  w-100" src={img1} alt="First slide" />
