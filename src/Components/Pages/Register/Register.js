@@ -49,8 +49,6 @@ const Register = () => {
     if (info.password === info.ConfirmPassword) {
       createUserWithEmailAndPassword(info.email, info.password);
       setError({ ...error, confirmPassword: "" });
-      toast("send varifide code please check your email");
-      navigate(from, { replace: true });
     } else {
       setError({ ...error, confirmPassword: "your password not match" });
     }
@@ -58,6 +56,18 @@ const Register = () => {
   };
   if (loading) {
     return <Loading></Loading>;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+    toast("send varifide code please check your email", { id: "varifide" });
+  }
+
+  if (createUserError) {
+    if (createUserError?.message.includes("auth/email-already-in-use")) {
+      toast.error("email-already-in-use", { id: "createUserError" });
+    } else {
+      toast.error("invalid email & password", { id: "invalidEmail" });
+    }
   }
 
   return (

@@ -7,9 +7,12 @@ const Services = ({ service }) => {
   const { id, day, price, packages, serviceA, serviceB, serviceC, serviceD, serviceE, serviceF } =
     service;
   return (
-    <div className="col-md-4 col-sm-6 ">
+    <div className="col-md-4 col-sm-6  ">
       <div>
-        <Card style={{ width: "20rem" }} className="mx-auto text-center bg-info">
+        <Card
+          style={{ maxWidth: "20rem", minWidth: "15rem" }}
+          className="mx-auto text-center bg-info"
+        >
           <Card.Body>
             <Card.Title className="fw-bold fs-3">{packages}</Card.Title>
             <span className="fs-1 ">{price}</span>

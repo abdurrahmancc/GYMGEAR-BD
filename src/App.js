@@ -16,7 +16,7 @@ import ProccedCheckOut from "./Components/Pages/ProccedCheckOut/ProccedCheckOut"
 
 function App() {
   return (
-    <div className="">
+    <div style={{ backgroundColor: "#e3e7f7" }} className="">
       <Header></Header>
       <Toaster />
       <Routes>

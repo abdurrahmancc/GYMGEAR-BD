@@ -11,15 +11,18 @@ const About = () => {
     return <Loading></Loading>;
   }
   return (
-    <div style={{ minHeight: "87vh" }} className="container ">
-      <div className="d-flex justify-content-center flex-column align-items-center">
+    <div style={{ minHeight: "80vh" }} className=" ">
+      <div className="container d-flex justify-content-center flex-column align-items-center">
         <img
-          style={{ width: "70px", marginBottom: "-30px" }}
-          className="rounded-circle border mt-5 border-2  border-dark"
+          style={{ width: "70px", marginBottom: "-30px", zIndex: "2" }}
+          className="rounded-circle  border mt-5 border-2  border-dark"
           src={img}
           alt=""
         />
-        <Card className="py-3" style={{ width: "35rem", zIndex: "-1" }}>
+        <Card
+          className="py-3 shadow"
+          style={{ maxWidth: "35rem", zIndex: "1", backgroundColor: "white" }}
+        >
           <Card.Body className="text-center">
             <Card.Title>MD Abdur Rahman</Card.Title>
             <Card.Text>
