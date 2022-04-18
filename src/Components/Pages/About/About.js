@@ -11,7 +11,7 @@ const About = () => {
     return <Loading></Loading>;
   }
   return (
-    <div style={{ minHeight: "80vh" }} className=" ">
+    <div style={{ minHeight: "87vh" }} className=" ">
       <div className="container d-flex justify-content-center flex-column align-items-center">
         <img
           style={{ width: "70px", marginBottom: "-30px", zIndex: "2" }}

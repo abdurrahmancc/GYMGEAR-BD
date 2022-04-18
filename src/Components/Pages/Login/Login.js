@@ -54,7 +54,7 @@ const Login = () => {
   }
 
   return (
-    <div style={{ height: "88vh" }} className="container d-flex">
+    <div style={{ minHeight: "88vh" }} className="container d-flex">
       <div className="w-50 mx-auto my-auto">
         <h1>please login</h1>
         <Form onSubmit={handleSubmit}>
@@ -110,7 +110,7 @@ const Login = () => {
           >
             <img src={google} alt="" /> CONTINUE WITH GOOGLE
           </button>
-          <button className="py-2 w-100 bg-body rounded rounded-pill border-1">
+          <button className="py-2 mb-3 w-100 bg-body rounded rounded-pill border-1">
             <img src={github} alt="" /> CONTINUE WITH GITHUB
           </button>
         </div>
