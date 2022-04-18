@@ -36,6 +36,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signInWithEmailAndPassword(email, password);
+    if (logInError) {
+      toast.error("Incorrect username or password.", { id: "logInError" });
+    }
   };
 
   const handleResetPassword = async () => {
@@ -50,9 +53,6 @@ const Login = () => {
     return <Loading></Loading>;
   }
 
-  if (logInError) {
-    toast.error("Incorrect username or password.", { id: "logInError" });
-  }
   return (
     <div style={{ height: "88vh" }} className="container d-flex">
       <div className="w-50 mx-auto my-auto">
