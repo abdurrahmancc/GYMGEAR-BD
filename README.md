@@ -12,7 +12,7 @@
 
 
 # I have used the library and the framework to do this project
-<li>react boootstrap</li>
+<li>react Bootstrap</li>
 <li>react</li>
 <li>react router</li>
 <li>react icons</li>
