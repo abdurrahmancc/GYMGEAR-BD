@@ -1,12 +1,15 @@
 # GYMGER BD
 
 # What have I done?
-<li>requier page</li>
+<li>This is Gym related website.</li>
+<li>Three services have been used here</li>
+<li>Login page authentication setup with firebase</li>
+<li>require page</li>
 <li>amazing header</li>
-<li> amazing footer</li>
+<li>amazing footer</li>
 <li>three packages</li>
 <li>login page</li>
-<li>register page</li>
+
 
 # I have used the library and the framework to do this project
 <li>react boootstrap</li>
